@@ -70,6 +70,18 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
+
+    //song Routes
+    var songs = require('../app/controllers/songs');
+    app.get('/songs', songs.all);
+    app.post('/songs', auth.requiresLogin, songs.create);
+    app.get('/songs/:songId', songs.show);
+    app.put('/songs/:songId', auth.requiresLogin, auth.requiresLogin, songs.update);
+    app.del('/songs/:songId', auth.requiresLogin, auth.requiresLogin, songs.destroy);
+
+    //Finish with setting up the songId param
+    app.param('songId', songs.song);
+    
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);

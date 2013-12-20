@@ -24,7 +24,11 @@ var UserSchema = new Schema({
     facebook: {},
     twitter: {},
     github: {},
-    google: {}
+    google: {},
+    type: {
+        type: Number,
+        default: 1 // 0: admin, 1: normal
+    }
 });
 
 /**

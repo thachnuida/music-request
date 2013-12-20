@@ -1,0 +1,12 @@
+<section data-ng-controller="SongsController" data-ng-init="findOne()">
+    <span>{{song.created | date:'medium'}}</span>/
+    <span>{{song.user.name}}</span>
+    <h2>{{song.title}}</h2>
+    <p><a href="{{song.url}}" target="_blank">{{song.url}}</a><p>
+    <div data-ng-show="global.user._id == song.user._id">
+        <a class="btn" data-ng-click="remove();">
+            <i class="icon-trash"></i>
+        </a>
+    </div>
+    <div>{{song.content}}</div>
+</section>
